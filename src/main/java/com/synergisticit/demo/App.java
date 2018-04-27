@@ -14,6 +14,36 @@ public class App
     {
     	ApplicationContext appContext= new ClassPathXmlApplicationContext("beans.xml");
     	Employee emp=(Employee) appContext.getBean("employee1");
-        System.out.println( emp );
+    	System.out.println( emp );
+
+    	Employee emp2=(Employee) appContext.getBean("employee1");
+    	System.out.println( emp2 );
+    	
+    	System.out.println(Integer.toHexString(System.identityHashCode(emp)));
+    	System.out.println(Integer.toHexString(System.identityHashCode(emp2)));
+    	
+    	if(emp==emp2) {
+    		System.out.println("THEY HAVE SAME ADDRESS");
+    	}else {
+    		System.out.println("THEY HAVE DIFF ADDRESS");
+    	}
+    	
+    	Employee emp3=(Employee) appContext.getBean("employee2");
+    	System.out.println( emp );
+
+    	Employee emp4=(Employee) appContext.getBean("employee2");
+    	System.out.println( emp2 );
+    	
+    	System.out.println(Integer.toHexString(System.identityHashCode(emp3)));
+    	System.out.println(Integer.toHexString(System.identityHashCode(emp4)));
+    	
+    	if(emp3==emp4) {
+    		System.out.println("THEY HAVE SAME ADDRESS");
+    	}else {
+    		System.out.println("THEY HAVE DIFF ADDRESS");
+    	}
+
+    
+    	
     }
 }
